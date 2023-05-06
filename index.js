@@ -21,6 +21,13 @@ app.get("/users", (req, res) => {
   res.send(users);
 });
 
+app.post("/users", (req, res) => {
+  const newUser = req.body;
+  newUser.id = users.length + 1;
+  users.push(newUser);
+  res.send(newUser);
+});
+
 app.listen(port, () => {
   console.log(`listening on port: ${port}`);
 });
